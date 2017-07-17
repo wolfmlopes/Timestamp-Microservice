@@ -26,7 +26,7 @@ app.get('/:date', function(req,res){
 		dateNatural = new Date(req.params.date * 1000)
 		dateNatural = dateNatural.toLocaleDateString('en-us', {year:'numeric',month: 'long',day: 'numeric'})
 	}
-	
+	if(dateNatural=="Invalid Date") dateNatural = null
 
 	res.json({unix:parseInt(dateUnix), natural: dateNatural})
 })
